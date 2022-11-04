@@ -10,11 +10,17 @@ library(broom)
 df=read.csv('C:/Users/Hanna/Documents/GitHub/LRDC-Research/CSV/same_probe.csv')
 View(df)
 
-LMER=lme4::lmer(text3_len~L1+level_id+(1|anon_id)+(1|question_id),REML=FALSE,data=df)
+unique(df$question_id)
+tapply(df$answer_id, df$native_language)
+
+LMER=lme4::lmer(text3_len~L1+as.factor(level_id)+(1|anon_id)+(1|question_id),REML=FALSE,data=df)
 LMER
 
-test=lme4::lmer(text3_len~L1+level_id+(1|question_id),REML=FALSE,data=df)
-test
+test=lme4::lmer(text3_len~L1*as.factor(level_id)+(1|anon_id)+(1|question_id),REML=FALSE,data=df)
+summary(test)
+
+library(lmerTest) #show p val
+
 
 summary(LMER)
 par(mfrow=c(2,2))
