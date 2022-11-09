@@ -8,7 +8,7 @@ library(AICcmodavg)
 df=read.csv('C:\\Users\\Hanna\\Documents\\GitHub\\LRDC-Research\\CSV\\participant_averages.csv')
 head(df)
 
-test=read.csv('C:\\Users\\Hanna\\Documents\\GitHub\\LRDC-Research\\CSV\\whole.csv')
+test=read.csv('C:\\Users\\Hanna\\Documents\\GitHub\\LRDC-Research\\CSV\\whole_no_duplicates.csv')
 head(test)
 
 summary(df)
@@ -52,7 +52,7 @@ mean.len.data=test%>%
 mean.len.data$group=c('a','b','b','b','b','b','b','b','c')
 mean.len.data
 
-two.way.plot=ggplot(test,aes(x=native_language,y=text_len,group=level_id))+
+two.way.plot=ggplot(test,aes(x=native_language,y=text_len,group=level_id,color=level_id))+
   geom_point(cex = 1.5, pch = 1.0,position = position_jitter(w = 0.1, h = 0))
 
 two.way.plot
@@ -67,7 +67,7 @@ facet=newtwo.way.plot+
   facet_wrap(~level_id)
 facet
 
-rev.two.way.plot=ggplot(test,aes(x=level_id,y=text_len,group=native_language))+
+rev.two.way.plot=ggplot(test,aes(x=level_id,y=text_len,group=native_language,color=native_language))+
   geom_point(cex = 1.5, pch = 1.0,position = position_jitter(w = 0.1, h = 0))
 
 rev.two.way.plot
@@ -106,7 +106,7 @@ mean.wt.data=test%>%
 mean.len.data$group=c('a','b','b','b','b','b','b','b','c')
 mean.len.data
 
-twoway.wt=ggplot(test,aes(x=native_language,y=wordtype_len,group=level_id))+
+twoway.wt=ggplot(test,aes(x=native_language,y=wordtype_len,group=level_id,color=level_id))+
   geom_point(cex = 1.5, pch = 1.0,position = position_jitter(w = 0.1, h = 0))
 twoway.wt
 
@@ -118,7 +118,7 @@ wt.plot <- twoway.wt +
 
 wt.plot
 
-revtwoway.wt=ggplot(test,aes(x=level_id,y=wordtype_len,group=native_language))+
+revtwoway.wt=ggplot(test,aes(x=level_id,y=wordtype_len,group=native_language,color=native_language))+
   geom_point(cex = 1.5, pch = 1.0,position = position_jitter(w = 0.1, h = 0))
 revtwoway.wt
 
