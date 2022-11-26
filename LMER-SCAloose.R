@@ -7,7 +7,7 @@ library(ggpubr)
 library(tidyverse)
 library(broom)
 
-df=read.csv('C:/Users/Hanna/Documents/GitHub/LRDC-Research/SCA_Merge/SCAloose.csv')
+df=read.csv('C:/Users/Hanna/Documents/GitHub/LRDC-Research/SCA_Merge/l34.csv')
 View(df)
 
 #compared against Chinese and Level 3
