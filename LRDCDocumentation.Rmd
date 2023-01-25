@@ -1,5 +1,5 @@
 ---
-title: "LRDC Documentation"
+title: "RresultsLMER-SCA"
 author: "Hannah Mencer"
 date: "11/24/2022"
 output: word_document
