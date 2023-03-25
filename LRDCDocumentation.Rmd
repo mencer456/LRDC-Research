@@ -19,6 +19,7 @@ library(ggplot2)
 library(ggpubr)
 library(tidyverse)
 library(broom)
+library(dplyr)
 ```
 
 ## Findings for participants in levels 3 progressing to level 4:

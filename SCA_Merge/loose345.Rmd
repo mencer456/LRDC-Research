@@ -1,0 +1,147 @@
+---
+title: "LME 3,4,5 Loose"
+author: "Hannah Mencer"
+date: "3/25/2023"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r echo=FALSE, warning=FALSE, message=FALSE}
+library(nlme)
+library(lme4)
+library(sjPlot)
+
+library(ggplot2)
+library(ggpubr)
+library(tidyverse)
+library(broom)
+```
+
+
+## Findings for participants in levels 3,4, and 5 across languages:
+
+```{r echo=FALSE}
+df3=read.csv('C:/Users/Hanna/Documents/GitHub/LRDC-Research/CSV/l3_with_metrics.csv')
+df4=read.csv('C:/Users/Hanna/Documents/GitHub/LRDC-Research/CSV/l4_with_metrics.csv')
+df5=read.csv('C:/Users/Hanna/Documents/GitHub/LRDC-Research/CSV/l5_with_metrics.csv')
+```
+
+## Loose 3
+
+```{r echo=FALSE, warnings=FALSE, message=FALSE}
+#compared against Chinese and Level 3
+#MODELS FOR EACH OF THE SCA VALEUS
+word=lme4::lmer(text3_len~as.factor(L1)+(1|anon_id)+(1|question_id),REML=FALSE,data=df3)
+sentence=lme4::lmer(S~as.factor(L1)+(1|anon_id)+(1|question_id),REML=FALSE,data=df3)
+unique_words=lme4::lmer(wordtype_len~as.factor(L1)+(1|anon_id)+(1|question_id),REML=FALSE,data=df3)
+ratio=lme4::lmer(ratio~as.factor(L1)+(1|anon_id)+(1|question_id),REML=FALSE,data=df3)
+```
+
+## Number of Words
+```{r echo=FALSE}
+sum=function(model){
+  summary=summary(model)
+  return(summary)
+}
+sum(word)
+sjPlot::plot_model(word)
+```
+
+## Number of Sentences
+```{r echo=FALSE}
+sum(sentence)
+sjPlot::plot_model(sentence)
+```
+
+## Number of Unique Words
+```{r echo=FALSE}
+sum(unique_words)
+sjPlot::plot_model(unique_words)
+```
+
+## Word vs Unique Words Ratio
+```{r echo=FALSE}
+sum(ratio)
+sjPlot::plot_model(ratio)
+```
+
+## Loose 4
+
+```{r echo=FALSE, warnings=FALSE, message=FALSE}
+#compared against Chinese and Level 3
+#MODELS FOR EACH OF THE SCA VALEUS
+word=lme4::lmer(text3_len~as.factor(L1)+(1|anon_id)+(1|question_id),REML=FALSE,data=df4)
+sentence=lme4::lmer(S~as.factor(L1)+(1|anon_id)+(1|question_id),REML=FALSE,data=df4)
+unique_words=lme4::lmer(wordtype_len~as.factor(L1)+(1|anon_id)+(1|question_id),REML=FALSE,data=df4)
+ratio=lme4::lmer(ratio~as.factor(L1)+(1|anon_id)+(1|question_id),REML=FALSE,data=df4)
+```
+
+## Number of Words
+```{r echo=FALSE}
+sum=function(model){
+  summary=summary(model)
+  return(summary)
+}
+sum(word)
+sjPlot::plot_model(word)
+```
+
+## Number of Sentences
+```{r echo=FALSE}
+sum(sentence)
+sjPlot::plot_model(sentence)
+```
+
+## Number of Unique Words
+```{r echo=FALSE}
+sum(unique_words)
+sjPlot::plot_model(unique_words)
+```
+
+## Word vs Unique Words Ratio
+```{r echo=FALSE}
+sum(ratio)
+sjPlot::plot_model(ratio)
+```
+
+
+## Loose 5
+
+```{r echo=FALSE, warnings=FALSE, message=FALSE}
+#MODELS FOR EACH OF THE SCA VALEUS
+word=lme4::lmer(text3_len~as.factor(L1)+(1|anon_id)+(1|question_id),REML=FALSE,data=df5)
+sentence=lme4::lmer(S~as.factor(L1)+(1|anon_id)+(1|question_id),REML=FALSE,data=df5)
+unique_words=lme4::lmer(wordtype_len~as.factor(L1)+(1|anon_id)+(1|question_id),REML=FALSE,data=df5)
+ratio=lme4::lmer(ratio~as.factor(L1)+(1|anon_id)+(1|question_id),REML=FALSE,data=df5)
+```
+
+## Number of Words
+```{r echo=FALSE}
+sum=function(model){
+  summary=summary(model)
+  return(summary)
+}
+sum(word)
+sjPlot::plot_model(word)
+```
+
+## Number of Sentences
+```{r echo=FALSE}
+sum(sentence)
+sjPlot::plot_model(sentence)
+```
+
+## Number of Unique Words
+```{r echo=FALSE}
+sum(unique_words)
+sjPlot::plot_model(unique_words)
+```
+
+## Word vs Unique Words Ratio
+```{r echo=FALSE}
+sum(ratio)
+sjPlot::plot_model(ratio)
+```
